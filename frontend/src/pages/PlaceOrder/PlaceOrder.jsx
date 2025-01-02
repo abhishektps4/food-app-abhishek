@@ -38,7 +38,9 @@ const PlaceOrder = () => {
       items:orderItems,
       amount:getTotalCartAmount()+2,
     }
-    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+    //let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+    
+    let response = await axios.post("https://food-app-abhishek-backend.onrender.com/api/order/place",orderData,{headers:{token}})
     
 
     if (response.data.success){
