@@ -6,12 +6,13 @@ import {assets} from "../../assets/assets"
 
 
 
-const Orders = ({url}) => {
+//const Orders = ({url}) => {
+const Orders = () => {
 
   const [orders,setOrders] = useState([]);
 
   const fetchAllOrders = async () => {
-    const response = await axios.get(url+"/api/order/list");
+    const response = await axios.get("https://food-app-abhishek-backend.onrender.com/api/order/list");
     if (response.data.success){
       setOrders(response.data.data);
       console.log(response.data.data);
@@ -23,7 +24,8 @@ const Orders = ({url}) => {
 
 
   const statusHandler = async (event,orderId) => {
-    const response = await axios.post(url+"/api/order/status",{
+    //const response = await axios.post(url+"/api/order/status",{
+    const response = await axios.post("https://food-app-abhishek-backend.onrender.com/api/order/status",{
       orderId,
       status:event.target.value
     })
