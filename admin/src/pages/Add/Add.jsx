@@ -3,7 +3,10 @@ import './Add.css'
 import axios from "axios"
 import { assets } from '../../assets/assets'
 import { toast } from 'react-toastify'
-const Add = ({url}) => {
+
+//const Add = ({url}) => { 
+const Add = () => {
+
 
 
     const [image,setImage]=useState(false);
@@ -29,7 +32,8 @@ const Add = ({url}) => {
             formData.append("price",Number(data.price))
             formData.append("category",data.category)
             formData.append("image",image)
-            const response=await axios.post(`${url}/api/food/add`,formData)
+            //const response=await axios.post(`${url}/api/food/add`,formData)
+            const response=await axios.post("https://food-app-abhishek-backend.onrender.com/api/food/add",formData)
             if(response.data.success){
                 setData({
                     name:"",
